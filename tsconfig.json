@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "preserveSymlinks": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "composite": true,
+    "rootDir": ".",
+    "paths": {
+      "@kremlingjs/core": ["packages/core/dist"],
+      "@kremlingjs/react": ["packages/react/dist"]
+    }
+  },
+  "include": ["packages/*/src"],
+}

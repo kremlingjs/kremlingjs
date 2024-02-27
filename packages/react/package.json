@@ -1,0 +1,36 @@
+{
+  "name": "@kremlingjs/react",
+  "version": "3.0.0-alpha.2",
+  "packageManager": "yarn@4.1.0",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "test": ""
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
+    "@kremlingjs/core": "workspace:^",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/babel__core": "^7",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "jest": "^29.7.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rollup": "^4.12.0",
+    "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "react": "~18",
+    "react-dom": "~18"
+  },
+  "dependencies": {
+    "@kremlingjs/core": "workspace:*"
+  }
+}

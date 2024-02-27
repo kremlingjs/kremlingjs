@@ -1,3 +1,16 @@
+node_modules
+dist
+tsconfig.tsbuildinfo
+.rollup.cache
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.idea
+
 .yarn/*
 !.yarn/patches
 !.yarn/plugins
@@ -9,5 +22,5 @@
 # In that case, don't forget to run `yarn config set enableGlobalCache false`!
 # Documentation here: https://yarnpkg.com/features/caching#zero-installs
 
-#!.yarn/cache
-.pnp.*
+!.yarn/cache
+#.pnp.*

@@ -1,0 +1,11 @@
+{
+  "name": "@kremlingjs/core",
+  "packageManager": "yarn@4.1.0",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
