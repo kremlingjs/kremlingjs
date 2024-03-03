@@ -7,8 +7,9 @@ import {
   KremlingStyleElement,
 } from "@kremlingjs/core";
 import { CssObj } from "./types";
+import { useState } from "react";
 
-export function useScope(
+export function useCss(
   css: string | CssObj,
   overrideNamespace?: string,
 ): { [key: string]: "" } {
@@ -18,37 +19,32 @@ export function useScope(
       `Kremling's "useCss" hook requires "id" and "styles" properties when using the kremling-loader`,
     );
   }
+
+  const [nextCounter] = useState(() => incrementCounter());
+
   const namespace =
     overrideNamespace || (!isRawCss && css.namespace) || defaultNamespace;
-
-  const [styleElement, setStyleElement] = React.useState(() =>
-    getStyleElement(css, namespace),
-  );
+  const kremlingAttr = isRawCss ? namespace + nextCounter : namespace + css.id;
 
   React.useLayoutEffect(() => {
-    const newStyleElement = getStyleElement(css, namespace);
-    setStyleElement(newStyleElement);
-    newStyleElement.kremlings++;
-
+    const currentStyleElement = getStyleElement(css, kremlingAttr);
+    currentStyleElement.kremlings++;
     return () => {
-      if (--styleElement.kremlings === 0) {
+      if (--currentStyleElement.kremlings === 0) {
         const rawCss = isRawCss ? css : css.styles;
-        document.head.removeChild(styleElement);
+        document.head.removeChild(currentStyleElement);
         delete styleTags[rawCss];
       }
     };
-  }, [css, namespace, isRawCss]);
+  }, [css, kremlingAttr, isRawCss]);
 
   return {
-    [styleElement.kremlingAttr]: "",
+    [kremlingAttr]: "",
   };
 }
 
-function getStyleElement(css: string | CssObj, namespace: string) {
+function getStyleElement(css: string | CssObj, kremlingAttr: string) {
   const isRawCss = typeof css === "string";
-  const kremlingAttr = isRawCss
-    ? namespace + incrementCounter()
-    : namespace + css.id;
   let styleElement: KremlingStyleElement = isRawCss
     ? styleTags[css]
     : styleTags[css.styles];

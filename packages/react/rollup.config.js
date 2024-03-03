@@ -3,14 +3,8 @@ import typescript from "@rollup/plugin-typescript";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
 import copy from "rollup-plugin-copy";
-import alias from "@rollup/plugin-alias";
-import path from "path";
-import url from "url";
 
-const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 const extensions = [".ts", ".tsx"];
-
-console.log("here", path.resolve(__dirname, "../../packages/core/src"));
 
 export default {
   input: "src/index.ts",

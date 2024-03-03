@@ -14,9 +14,10 @@
     "composite": true,
     "rootDir": ".",
     "paths": {
-      "@kremlingjs/core": ["packages/core/dist"],
-      "@kremlingjs/react": ["packages/react/dist"]
-    }
+      "@kremlingjs/core": ["packages/core/src"],
+      "@kremlingjs/react": ["packages/react/src"]
+    },
+    "jsx": "react"
   },
   "include": ["packages/*/src"],
 }

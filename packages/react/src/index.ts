@@ -1,4 +1,4 @@
-export * from "./scope";
-export * from "./use-scope-hook";
-export { k } from "@kremlingjs/core";
+export * from "./css";
+export * from "./use-css-hook";
+export { k } from "./k";
 export { setGlobalNamespace } from "./default-namespace";
